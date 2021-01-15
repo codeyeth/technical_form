@@ -45,6 +45,8 @@ export default {
       this.fetchRequests();
       console.log(e);
     });
+
+    
   },
   methods: {
     fetchRequests() {

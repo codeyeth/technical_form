@@ -228,7 +228,10 @@ class TechRequestController extends Controller
         $now = Carbon::now();
         
         $requestUpdate = TechRequests::find($id);
+        
         $requestUpdate->attended_by = $request->input('attBy');
+
+
         $requestUpdate->attended_at = $now;
         $requestUpdate->status_report = $request->input('statusReport');
         $requestUpdate->status = $request->input('status');
@@ -242,6 +245,8 @@ class TechRequestController extends Controller
         }
         
         $requestUpdate->save();
+
+        broadcast(new RequestSent("Success!"));
         
         return back()->with('success', 'Request Update Successful')->with('now', $now);
     }

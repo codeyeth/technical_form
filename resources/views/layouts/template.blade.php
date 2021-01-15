@@ -18,9 +18,9 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
-     <!-- Icon -->
-     <link rel="shortcut icon" type="image/png" href="{{ asset ('npo.png')}}">
-      
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset ('npo.png')}}">
+    
     @livewireStyles
     
 </head>
@@ -72,9 +72,9 @@
     @yield('content')
     
     @livewireScripts
-
+    
     <script src="js/app.js"></script>
-
+    
 </body>
 
 <style scoped>
