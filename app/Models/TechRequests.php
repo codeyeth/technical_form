@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TechRequests extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'attBy',
+    ];
 }

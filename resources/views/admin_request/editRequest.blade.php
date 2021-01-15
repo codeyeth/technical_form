@@ -18,8 +18,8 @@
             <label for="newTwootType"><strong>ATTENDED BY:</strong>
                 <span class="required"> *</span>
             </label>
-            <select id="attBy" name="attBy" class="form-control" required>
-                <option value="">Select Personnel Here</option>
+            <select id="attBy" name="attBy[]" class="form-control" required multiple style="height: 130px;">
+                {{-- <option value="">Select Personnel Here</option> --}}
                 <option value="Joselito Binos">Joselito Binos</option>
                 <option value="Manuel Ibañez">Manuel Ibañez</option>
                 <option value="Junie Oafallas">Junie Oafallas</option>
@@ -58,7 +58,6 @@
     
     <div class="user-profile__twoots-wrapper">
         
-        
         <div class="twoot-item">
             <div class="user-profile__twoot">
                 <div class="twoot-item__user">
@@ -69,7 +68,6 @@
                     </div>
                     
                     <div class="twoot-item__content">
-                        
                         <div class="twoot-item__content1">
                             
                             <h3><u> Employee Request Information </u></h3>
@@ -101,20 +99,12 @@
                             @endif
                             
                         </div>
-                    </div>
-                    
-                    
-                    
+                    </div>            
                 </div>
             </div>
         </div>
-        
-        
-        
-        
     </div>
-    
-    
+
 </div>
 
 <style scoped>
@@ -209,7 +199,7 @@
         font-weight: bold;
         cursor: pointer;
     }
-
+    
     .btn-yellow {
         padding: 5px 20px;
         margin: auto 0;
@@ -220,7 +210,7 @@
         font-weight: bold;
         cursor: pointer;
     }
-
+    
     
     .twoot-item {
         padding: 20px;

@@ -225,13 +225,17 @@ class TechRequestController extends Controller
     */
     public function update(Request $request, $id)
     {
+        
         $now = Carbon::now();
         
         $requestUpdate = TechRequests::find($id);
         
-        $requestUpdate->attended_by = $request->input('attBy');
-
-
+        // $requestUpdate->attended_by = $request->input('attBy');
+        $input = $request->all();
+        $attendedBy = $input['attBy'];
+        $finalattendedBy = implode(', ', $attendedBy);
+        
+        $requestUpdate->attended_by = $finalattendedBy;
         $requestUpdate->attended_at = $now;
         $requestUpdate->status_report = $request->input('statusReport');
         $requestUpdate->status = $request->input('status');
@@ -245,7 +249,7 @@ class TechRequestController extends Controller
         }
         
         $requestUpdate->save();
-
+        
         broadcast(new RequestSent("Success!"));
         
         return back()->with('success', 'Request Update Successful')->with('now', $now);
@@ -259,6 +263,10 @@ class TechRequestController extends Controller
     */
     public function destroy($id)
     {
-        //
+        $now = Carbon::now();
+        $post = TechRequests::find($id);
+        
+        $post-> delete();
+        return back()->with('success', 'Request Deleted Successfully')->with('now', $now);
     }
 }

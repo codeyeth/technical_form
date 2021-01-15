@@ -7,6 +7,8 @@
         
         <h3 class="user-profile__username">Old Requests </h3>
         
+        @include('inc.messages')
+
         <br>
         
         <div class="form-group">
@@ -96,6 +98,16 @@
                                 <br />
                                 STATUS: <b> {{ $item->status }} </b>
                                 
+                                <hr>
+                                
+                                @guest
+                                @else
+                                {!!Form::open(['action' => ['TechRequestController@destroy', $item->id],'method' => 'POST', 'class' => ''])!!}
+                                {{Form::hidden('_method', 'DELETE')}}
+                                {{Form::submit('DELETE', ['class' => 'btn btn-danger btn-right'])}}
+                                {!!Form::close()!!}
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -231,7 +243,7 @@
         margin: auto 0;
         border-radius: 1px;
         border: none;
-        background-color: #4682b4;
+        background-color: red;
         color: white;
         font-weight: bold;
         cursor: pointer;

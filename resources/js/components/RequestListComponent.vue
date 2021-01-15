@@ -3,6 +3,8 @@
     <div class="requestCount">
       <h3 class="user-profile__username">
         Total Requests <b class="totalCount"> ( {{ requests.length }} ) </b>
+
+        <!-- <button @click="playNotif()">Click Me!</button> -->
       </h3>
     </div>
 
@@ -23,36 +25,42 @@ export default {
   components: {
     requestListChild,
   },
-  props:["authgood"],
+  props: ["authgood"],
   mounted() {
     console.log("Component mounted.");
   },
   data() {
     return {
+      soundurl: "notif1.mp3",
       requests: [],
       // authgood: "false",
     };
   },
   created() {
+    // this.playNotif();
     this.fetchRequests();
     console.log(this.authgood);
-    // Echo.join("chat").listen("RequestSent", (event) => {
+
+    // Echo.join("receiveRequest").listen("RequestSent", (event) => {
     //   this.fetchRequests();
-    //   console.log("Fetch Success!");
+    //   console.log("Someone has Opened our Portal!");
     // });
 
     Echo.channel("receiveRequest").listen("RequestSent", (e) => {
       this.fetchRequests();
       console.log(e);
+      this.playNotif();
     });
-
-    
   },
   methods: {
     fetchRequests() {
       axios.get("requests").then((response) => {
         this.requests = response.data;
       });
+    },
+    playNotif() {
+      var audio = new Audio(this.soundurl);
+      audio.play();
     },
   },
 };

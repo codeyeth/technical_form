@@ -1932,6 +1932,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -1943,6 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      soundurl: "notif1.mp3",
       requests: [] // authgood: "false",
 
     };
@@ -1950,16 +1953,19 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    // this.playNotif();
     this.fetchRequests();
-    console.log(this.authgood); // Echo.join("chat").listen("RequestSent", (event) => {
+    console.log(this.authgood); // Echo.join("receiveRequest").listen("RequestSent", (event) => {
     //   this.fetchRequests();
-    //   console.log("Fetch Success!");
+    //   console.log("Someone has Opened our Portal!");
     // });
 
     Echo.channel("receiveRequest").listen("RequestSent", function (e) {
       _this.fetchRequests();
 
       console.log(e);
+
+      _this.playNotif();
     });
   },
   methods: {
@@ -1969,6 +1975,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("requests").then(function (response) {
         _this2.requests = response.data;
       });
+    },
+    playNotif: function playNotif() {
+      var audio = new Audio(this.soundurl);
+      audio.play();
     }
   }
 });
@@ -65617,7 +65627,19 @@ var render = function() {
           _vm._v("\n      Total Requests "),
           _c("b", { staticClass: "totalCount" }, [
             _vm._v(" ( " + _vm._s(_vm.requests.length) + " ) ")
-          ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  return _vm.playNotif()
+                }
+              }
+            },
+            [_vm._v("Click Me!")]
+          )
         ])
       ]),
       _vm._v(" "),
