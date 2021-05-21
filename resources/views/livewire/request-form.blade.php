@@ -4,8 +4,8 @@
     'autocomplete' => 'off', 'class' => 'create-twoot-panel' ]) !!}
     @csrf
     
-    <label for="newTwootType"><strong>REQUESTING EMPLOYEE:</strong>
-        <span class="required"> *</span>
+    <label for="newTwootType"><strong>REQUESTING EMPLOYEE: <br> </strong>
+        <span class="required"> PLEASE ALWAYS INCLUDE YOUR FULLNAME *</span>
     </label>
     <input type="text" class="form-control" id="reqEmp" name="reqEmp" required wire:model="empName" />
     <br>
@@ -22,8 +22,9 @@
         <option value="Finishing Division">Finishing Division</option>
         <option value="Engineering Division">Engineering Division</option>
         <option value="Financial and Management Division">Financial and Management Division</option>
-        <option value="Sales and Management Division">Sales and Management Division</option>
+        <option value="Sales and Marketing Division">Sales and Marketing Division</option>
         <option value="Photolithographic Division">Photolithographic Division</option>
+        <option value="Commission on Audit">Commission on Audit</option>
     </select>
     <br>
     <label for="newTwootType"><strong>PROBLEM CATEGORY:</strong>
@@ -42,9 +43,9 @@
     
     <br>
     
-    <label for="newTwoot"><strong>BRIEF SUMMARY OF TECHNICAL <br /> ISSUE/S CONCERN: MAX CHARACTER ( {{ strlen($description) }} / 180 )</strong>
+    <label for="newTwoot"><strong>BRIEF SUMMARY OF TECHNICAL <br /> ISSUE/S CONCERN: MAX CHARACTER ( {{ strlen($description) }} / 180 )</strong> <span class="required"> *</span>
     </label>
-    <textarea id="description" name="description" rows="5" class="form-control" maxlength="180" wire:model="description"></textarea>
+    <textarea id="description" name="description" rows="5" class="form-control" maxlength="180" wire:model="description" required></textarea>
     
     <br>
     

@@ -65627,19 +65627,7 @@ var render = function() {
           _vm._v("\n      Total Requests "),
           _c("b", { staticClass: "totalCount" }, [
             _vm._v(" ( " + _vm._s(_vm.requests.length) + " ) ")
-          ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              on: {
-                click: function($event) {
-                  return _vm.playNotif()
-                }
-              }
-            },
-            [_vm._v("Click Me!")]
-          )
+          ])
         ])
       ]),
       _vm._v(" "),

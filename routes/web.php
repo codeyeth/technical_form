@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TechRequestController;
+use App\Http\Controllers\RatingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,7 @@ Route::get('/', [TechRequestController::class, 'index']);
 Route::get('requests', [TechRequestController::class, 'fetchRequests'] );
 Route::get('requestList', [TechRequestController::class, 'requestList'] );
 Route::get('showRequests', [TechRequestController::class, 'showRequests'] )->name('showRequests');
+Route::get('ratings', [RatingsController::class, 'index'] );
 
 // Route::resource('techRequest', App\Http\Controllers\TechRequestController);
 

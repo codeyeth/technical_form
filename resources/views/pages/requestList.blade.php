@@ -24,7 +24,7 @@
                 <option value="Finishing Division">Finishing Division</option>
                 <option value="Engineering Division">Engineering Division</option>
                 <option value="Financial and Management Division">Financial and Management Division</option>
-                <option value="Sales and Management Division">Sales and Management Division</option>
+                <option value="Sales and Marketing Division">Sales and Marketing Division</option>
                 <option value="Photolithographic Division">Photolithographic Division</option>
             </select>
         </div>
